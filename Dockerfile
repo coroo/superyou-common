@@ -17,6 +17,8 @@ RUN set -e; \
                 openssl-dev \
         ;
 
+RUN apk -U add chromium udev ttf-freefont
+
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
 COPY . ./
@@ -32,5 +34,7 @@ CMD pip install -r requirements.txt && \
     pip install pydantic[dotenv] && \
     pip install mysqlclient && \
     pip install passlib && \
+    pip install pyppeteer && \
+    pip install -U "urllib3<1.25" && \
     PYTHONPATH=. alembic upgrade head && \
     python main.py

@@ -13,6 +13,7 @@ mysql/*
 
 # Public Image
 public/*
+common_public/*
 
 # Fast Api Default Gitignore
 .idea
